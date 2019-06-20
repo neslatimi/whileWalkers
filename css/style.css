@@ -1,0 +1,41 @@
+  body {
+      font: normal sans-serif;
+      color: #222;
+      background-color: #edeff0;
+
+  }
+  
+  #main-container {
+    width: 90%;
+    margin: auto;
+  }
+  
+  .main-header { background-image:linear-gradient(rgb(216, 204, 37), rgb(22, 214, 125))}
+  .main-nav li { background-color: #3f8abf; }
+  .primary-content { background-color: #caebf6; }
+  .secondary-content { background-color: #bfe3d0; }
+  
+  
+
+  .main-header {
+    padding: 20px;
+  }
+  
+  .main-logo-img,
+  .main-nav,
+  .main-nav li {
+    display: inline;
+    padding: 10px 30px;
+    border-radius: 10px;
+  }
+  
+  .main-logo-img {
+    margin-right: 100px;
+    inline-size: 100px
+  }
+  
+  .main-nav a {
+    color: white;
+    text-decoration: none;
+  }
+  
