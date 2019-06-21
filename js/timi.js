@@ -318,18 +318,47 @@ var data=[
 
 function ertekszerintCsokkenoData()
 {
+
     for(var i=0;i<data.length-1;i++)
         {
             for(var j=i+1;j<data.length;j++)
                 {
                     if(data[i].ertek<data[j].ertek)
                         {
-                            var temp=[data[i].ertek ,data[j].ertek];
-                            data[i].ertek=temp[1];
-                            data[j].ertek=temp[0];
+                            var temp=[data[i] ,data[j]];
+                            data[i]=temp[1];
+                            data[j]=temp[0];
                         }
                 }
         }console.log(data);
     } 
     
   ertekszerintCsokkenoData();
+
+
+  var topTizarray=[];
+  function topTizJatekos()
+  {
+    for(var i=0;i<10;i++)
+        {
+            topTizarray.push(data[i].vezeteknev + ' ' + data[i].utonev);    
+        }
+    return topTizarray;
+  }
+  topTizJatekos();
+
+  console.log(topTizarray);
+
+
+/*ki irja az elso 10 legértékesebb játékost */ 
+var elso=document.getElementById("1").innerText=topTizarray[0];
+var elso=document.getElementById("2").innerText=topTizarray[1];
+var elso=document.getElementById("3").innerText=topTizarray[2];
+var elso=document.getElementById("4").innerText=topTizarray[3];
+var elso=document.getElementById("5").innerText=topTizarray[4];
+var elso=document.getElementById("6").innerText=topTizarray[5];
+var elso=document.getElementById("7").innerText=topTizarray[6];
+var elso=document.getElementById("8").innerText=topTizarray[7];
+var elso=document.getElementById("9").innerText=topTizarray[8];
+var elso=document.getElementById("10").innerText=topTizarray[9];
+
