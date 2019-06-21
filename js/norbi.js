@@ -55,7 +55,7 @@ function poszt(){
     var keresettPoszt=document.querySelector('#poszt').value;
         for(i=0; i<adatbazis.length; i++){
             if(adatbazis[i].poszt.indexOf(keresettPoszt)!=-1){
-                result.push(adatbazis[i].vezeteknev +" "+ adatbazis[i].utonev);
+                result.push(adatbazis[i].vezeteknev +" "+ adatbazis[i].utonev+" [ "+adatbazis[i].poszt+" ]" );
 
             }
         }
