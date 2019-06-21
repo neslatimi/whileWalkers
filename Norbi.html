@@ -4,44 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>While Walker</title>
-    <link rel="stylesheet"
-    type="text/css"
-    href="/css/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+HK&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/norbi.css">
+    <title>Document</title>
 </head>
-<body>
-        <div id="container">
-
-                <header class="main-header">
-                  <img class="main-logo-img" src="/img/httpssjsports_files_wordpress_com201105sjswhitelogo.jpg" alt="JS logo"></img>
-                  <ul class="main-nav">
-                    <li><a href="/index.html">Főoldal</a></li>
-                    <li><a href="/Dani.html">Dani</a></li>
-                    <li><a href="/Evelin.html">Evelin</a></li>
-                    <li><a href="/Norbi.html">Norbi</a></li>
-                    <li><a href="/Gyuri.html">Gyuri</a></li>
-                  </ul>
-                </header>
-              
-                <div class="primary-content col">
-                  <h2>Primary Content</h2>
-                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut, repellendus! Vero, aut ea sed perspiciatis qui numquam a accusantium minima magni perferendis incidunt unde repudiandae eligendi. Ducimus mollitia officia consequatur.</p>
+<body style="background-color: green">
+    <header >
+        <img class="otpliga" height="217px" width="200px"  src="img/otpliga.png" alt="otpliga">
+    </header>
+    <div class="container">
+        <div class="menu">
+            <ul class="side-menu"> 
+                <li><button onclick=>teljes NB1</button></li>
+                <li><button onclick="main('vasas');">Vasas Fc</button></li>
+                <li><button onclick="main('ftc');">Ferencvárosi TC</button></li>
+                <li><button onclick="main('balmaz')">Balmazújvárosi FC</button></li>
+                <li><button onclick="main('ujpest')">Ujpest Fc</button></li>
+                <li><button onclick="main('dios')">Diósgyőri VTK</button></li>
+                <li><button onclick="main('puskas')">Puskás Akadémia FC</button></li>
+                <li><button onclick="main('paks')">Paksi Fc</button></li>
+                <li><button onclick="main('szombathely')">Szombathelyi Haladás</button></li>
+                <li><button onclick="main('honved')">Budapesti Honvéd</button></li>
+                <li><button onclick="main('mezo')">Mezőkövesd</button></li>
+                <li><button onclick="main('videoton')">Videoton FC</button></li>
+                <li><button onclick="main('debrecen')">Debreceni VSC</button></li>
+            </ul>
+        </div>
+        <div class="content">
+                <div>
+                    <label for="poszt">Válassz posztot!</label><br>
+                    <select name="poszt" id="poszt">
+                        <option value="kapus">kapus</option>
+                        <option value="védő">védő</option>
+                        <option value="középpályás">középpályás</option>
+                        <option value="csatár">csatár</option>
+                    </select>
+                <button onclick="poszt()">mutasd!</button>
+                <ul id="posztkiiratas">
+                    
+                </ul>
                 </div>
-              
-                <div class="secondary-content col">
-                  <h3>Secondary Content</h3>
-                  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate fuga tempora, magnam repellendus inventore et praesentium repudiandae commodi labore mollitia, sit vel sed consectetur repellat, necessitatibus ad debitis possimus eaque.</p>
-                  
-                </div>
-              
-        
-              
-          </div>
-          <script type="text/javascript" src="/js/timi.js"></script> 
+        </div>
+    </div>
+    <script src="js/nb1.js"></script>
+    <script src="js/norbi.js"></script>
 </body>
 </html>
-
-
-
-
-
