@@ -318,7 +318,6 @@ var data=[
 
 function ertekszerintCsokkenoData()
 {
-
     for(var i=0;i<data.length-1;i++)
         {
             for(var j=i+1;j<data.length;j++)
@@ -334,6 +333,8 @@ function ertekszerintCsokkenoData()
     } 
     
   ertekszerintCsokkenoData();
+
+ 
 
 
   var topTizarray=[];
@@ -362,3 +363,32 @@ var elso=document.getElementById("8").innerText=topTizarray[7];
 var elso=document.getElementById("9").innerText=topTizarray[8];
 var elso=document.getElementById("10").innerText=topTizarray[9];
 
+function ClubsRepresented() {
+    var result = [];
+    for (var i = 0; i < data.length; i++) {
+        if (result.indexOf(data[i].klub) == -1) {
+            result.push(data[i].klub);
+        }
+    }
+    return result;
+}
+
+
+function ertekByClub() {
+    var result = [];
+    var klubbok = ClubsRepresented();
+    for (var i = 0; i < klubbok.length; i++) {
+        var nev = klubbok[i];
+        result.push({ csapat: nev, ertek: 0 });
+    }
+    for (var i = 0; i < result.length; i++) {
+        for (var j = 0; j < data.length; j++) {
+            if (data[j].klub == result[i].csapat) {
+                result[i].ertek += parseInt(data[j].ertek);
+            }
+        }
+    }
+    return result;
+}
+
+var pie = ertekByClub();

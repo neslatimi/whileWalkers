@@ -13,7 +13,9 @@ background-image: url(/img/110884612-green-grass-background-nature-texture.jpg);
   .main-header { background-image:linear-gradient(rgb(116, 113, 90), rgb(24, 26, 25))}
   .main-nav li { background-color: #3f8abf; }
   .primary-content { background-color: #caebf6; }
-  .secondary-content { background-color: #bfe3d0; }
+  .secondary-content { 
+    background-color: #bfe3d0;
+   }
   
   
 
