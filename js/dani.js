@@ -60,9 +60,54 @@ function teamValue(csapat) {
     return osszertek;
 }
 
+function threeTopPlayers(csapat) {
+    var haromlegjobb = [];
+    var legtobb = csapat[0].ertek;
+    for (var i = 0; i < (csapat.length - 1); i++) {
+        for (var j = i + 1; j < csapat.length; j++) {
+            if (csapat[i].ertek < csapat[j].ertek) {
+                var temp = [csapat[i], csapat[j]];
+                csapat[i] = temp[1];
+                csapat[j] = temp[0];
+            }
+        }
+    }
+    for (var i = 0; i < 3; i++) {
+        haromlegjobb.push(csapat[i]);
+    }
+    return haromlegjobb;
+}
+
+function Nationalities(csapat) {
+    var nemzetek = { magyar: 0, kulfoldi: 0, kettos: 0 };
+    for (var i = 0; i < csapat.length; i++) {
+        if ((csapat[i].magyar === true) && (csapat[i].kulfoldi == false)) {
+            nemzetek.magyar++;
+        } else if ((csapat[i].magyar === false) && (csapat[i].kulfoldi === true)) {
+            nemzetek.kulfoldi++;
+        } else {
+            nemzetek.kettos++;
+        }
+    }
+    return nemzetek;
+}
+
+
+// Bio page
+var biotomb = [];
+for (var i = 0; i < data.length; i++) {
+    biotomb.push({ nev: data[i].vezeteknev + ' ' + data[i].utonev, eletkor: CalculateAge(data[i].szulido), poszt: data[i].poszt })
+    document.querySelector('#szar').innerHTML += '<span id="' + biotomb[i].nev + '">' + biotomb[i].nev + '</span>' + '<br>' + biotomb[i].eletkor + '<br>' + biotomb[i].poszt + '<br>' + '<br>';
+}
+
+
+
+
 function melyikSzures() {
     var node = document.querySelector('#szures');
     var szures = parseInt(node.value);
+    document.querySelector('#csapat1').innerHTML = elsoCsapat()[0].klub;
+    document.querySelector('#csapat2').innerHTML = masodikCsapat()[0].klub;;
     switch (szures) {
         case 1:
             document.querySelector('#info1').innerHTML = '';
@@ -79,106 +124,50 @@ function melyikSzures() {
         case 3:
             document.querySelector('#info1').innerHTML = '';
             document.querySelector('#info2').innerHTML = '';
-            document.querySelector('#info1').innerHTML += teamValue(elsoCsapat()) + ' milliárd euro';
-            document.querySelector('#info2').innerHTML += teamValue(masodikCsapat()) + ' milliárd euro';
+            document.querySelector('#info1').innerHTML += 'A csapat teljes értéke: ' + teamValue(elsoCsapat()) + ' milliárd euró';
+            document.querySelector('#info2').innerHTML += 'A csapat teljes értéke: ' + teamValue(masodikCsapat()) + ' milliárd euró';
             break;
         case 4:
             document.querySelector('#info1').innerHTML = '';
             document.querySelector('#info2').innerHTML = '';
-            document.querySelector('#info1').innerHTML += MaximumAge(elsoCsapat());
-            document.querySelector('#info2').innerHTML += MaximumAge(masodikCsapat());
+            document.querySelector('#info1').innerHTML += '<strong>' + threeTopPlayers(elsoCsapat())[0].vezeteknev + ' ' + threeTopPlayers(elsoCsapat())[0].utonev + '</strong>' +
+                '<br>' + 'Értéke: ' + threeTopPlayers(elsoCsapat())[0].ertek + ' milliárd euró' + '<br>' +
+                '<strong>' + threeTopPlayers(elsoCsapat())[1].vezeteknev + ' ' + threeTopPlayers(elsoCsapat())[1].utonev + '</strong>' +
+                '<br>' + 'Értéke: ' + threeTopPlayers(elsoCsapat())[1].ertek + ' milliárd euró' + '<br>' +
+                '<strong>' + threeTopPlayers(elsoCsapat())[2].vezeteknev + ' ' + threeTopPlayers(elsoCsapat())[2].utonev + '</strong>' +
+                '<br>' + 'Értéke: ' + threeTopPlayers(elsoCsapat())[2].ertek + ' milliárd euró';
+            document.querySelector('#info2').innerHTML += '<strong>' + threeTopPlayers(masodikCsapat())[0].vezeteknev + ' ' + threeTopPlayers(masodikCsapat())[0].utonev + '</strong>' +
+                '<br>' + 'Értéke: ' + threeTopPlayers(masodikCsapat())[0].ertek + ' milliárd euró' + '<br>' +
+                '<strong>' + threeTopPlayers(masodikCsapat())[1].vezeteknev + ' ' + threeTopPlayers(masodikCsapat())[1].utonev + '</strong>' +
+                '<br>' + 'Értéke: ' + threeTopPlayers(masodikCsapat())[1].ertek + ' milliárd euró' + '<br>' +
+                '<strong>' + threeTopPlayers(masodikCsapat())[2].vezeteknev + ' ' + threeTopPlayers(masodikCsapat())[2].utonev + '</strong>' +
+                '<br>' + 'Értéke: ' + threeTopPlayers(masodikCsapat())[2].ertek + ' milliárd euró';
             break;
         case 5:
             document.querySelector('#info1').innerHTML = '';
             document.querySelector('#info2').innerHTML = '';
-            document.querySelector('#info1').innerHTML += MaximumAge(elsoCsapat());
-            document.querySelector('#info2').innerHTML += MaximumAge(masodikCsapat());
+            document.querySelector('#info1').innerHTML += 'Magyar: ' + Nationalities(elsoCsapat()).magyar + '<br>' + 'Külföldi: ' + Nationalities(elsoCsapat()).kulfoldi + '<br>' + 'Kettős állampolgár: ' + Nationalities(elsoCsapat()).kettos;
+            document.querySelector('#info2').innerHTML += 'Magyar: ' + Nationalities(masodikCsapat()).magyar + '<br>' + 'Külföldi: ' + Nationalities(elsoCsapat()).kulfoldi + '<br>' + 'Kettős állampolgár: ' + Nationalities(masodikCsapat()).kettos
             break;
         case 6:
             document.querySelector('#info1').innerHTML = '';
             document.querySelector('#info2').innerHTML = '';
-            document.querySelector('#info1').innerHTML += MaximumAge(elsoCsapat());
-            document.querySelector('#info2').innerHTML += MaximumAge(masodikCsapat());
+            document.querySelector('#info1').innerHTML += '<ul>';
+            document.querySelector('#info2').innerHTML += '<ul>';
+            for (var i = 0; i < elsoCsapat().length; i++) {
+                document.querySelector('#info1').innerHTML += '<li>' + '<a href="/lista.html#' + elsoCsapat()[i].vezeteknev + ' ' + elsoCsapat()[i].utonev + '" target="_blank">' + elsoCsapat()[i].vezeteknev + ' ' + elsoCsapat()[i].utonev + '</a>' + '</li>';
+            }
+            for (var i = 0; i < masodikCsapat().length; i++) {
+                document.querySelector('#info2').innerHTML += '<li>' + '<a href="/lista.html#' + masodikCsapat()[i].vezeteknev + ' ' + masodikCsapat()[i].utonev + '" target="_blank">' + masodikCsapat()[i].vezeteknev + ' ' + masodikCsapat()[i].utonev + '</a>' + '</li>';
+            }
+            document.querySelector('#info1').innerHTML += '</ul>';
+            document.querySelector('#info2').innerHTML += '</ul>';
             break;
     }
 }
 
 
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
-function AllGoals() {
-    var osszesgol = 0;
-    for (var i = 0; i < players.length; i++) {
-        osszesgol += parseInt(players[i].goals);
-    }
-    return osszesgol;
-}
-
-
-function AverageAge() {
-    var avg = 0;
-    var hanyan = 0;
-    var osszkor = 0;
-    for (var i = 0; i < players.length; i++) {
-        osszkor += CalculateAge(players[i].birthdate);
-        hanyan++
-    }
-    avg = osszkor / hanyan;
-    return avg;
-}
-
-function Goalkeepers() {
-    var kapusok = [];
-    for (var i = 0; i < players.length; i++) {
-        if (players[i].position === 'Goalkeeper') {
-            kapusok.push(players[i]);
-        }
-    }
-    return kapusok;
-}
-
-function HasPlayerFromClub(pClubName) {
-    var result = false;
-    for (var i = 0; i < players.length; i++) {
-        if (players[i].club.indexOf(pClubName) > -1) {
-            result = true;
-            break;
-        }
-    }
-    return result;
-}
-
-function HasPlayerWithName(pPlayerName) {
-    var result = false;
-    for (var i = 0; i < players.length; i++) {
-        if (players[i].name.indexOf(pPlayerName) > -1) {
-            result = true;
-            break;
-        }
-    }
-    return result;
-}
-
-function FirstPlayerWithName(pPlayerName) {
-    var result = {};
-    for (var i = 0; i < players.length; i++) {
-        if (players[i].name.indexOf(pPlayerName) > -1) {
-            result = players[i];
-            break;
-        }
-    }
-    return result;
-}
-
-function PlayersWithName(pPlayerName) {
-    var result = [];
-    for (var i = 0; i < players.length; i++) {
-        if (players[i].name.indexOf(pPlayerName) > -1) {
-            result.push(players[i]);
-        }
-    }
-    return result;
-}
 
 function ClubsRepresented() {
     var result = [];
@@ -190,19 +179,17 @@ function ClubsRepresented() {
     return result;
 }
 
-console.log(ClubsRepresented());
-
-function PlayersByClub() {
+function valueByClub() {
     var result = [];
     var klubbok = ClubsRepresented();
     for (var i = 0; i < klubbok.length; i++) {
         var nev = klubbok[i];
-        result.push({ csapat: nev, jatekosok: [] });
+        result.push({ csapat: nev, ertek: 0 });
     }
-    for (var i = 0; i < players.length; i++) {
+    for (var i = 0; i < data.length; i++) {
         for (var j = 0; j < result.length; j++) {
-            if (players[i].club === result[j].csapat) {
-                result[j].jatekosok.push(players[i]);
+            if (data[i].klub == result[j].csapat) {
+                result[j].ertek += parseInt(data[i].ertek);
             }
         }
     }
