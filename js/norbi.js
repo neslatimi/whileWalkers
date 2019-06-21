@@ -11,6 +11,7 @@
 
 var adatbazis=[];
 function main(csapatnev){
+    document.querySelector('#legertekesebb').innerHTML="";
     document.querySelector('#posztkiiratas').innerHTML="";
     var csapatok=[
         {klub:"Vasas FC",nev:"vasas", set:"background-color:#2056b2", logo:"/img/vasas.jpg"},
@@ -67,7 +68,7 @@ for(j=0; j<result.length; j++){
 document.querySelector('#posztkiiratas').innerHTML=kiiras;
 }
 function  legertekesebb (){
-    document.querySelector('#legertekesebb').innerHTML="";
+    
     var ertekesebb=""+ adatbazis[0].vezeteknev + " " +adatbazis[0].utonev;
     var ertek=adatbazis[0].ertek;
     for(i=0; i<adatbazis.length; i++){
