@@ -75,11 +75,12 @@ function  legertekesebb (){
         if(ertek<adatbazis[i].ertek){
             ertekesebb=""+ adatbazis[i].vezeteknev + " " +adatbazis[i].utonev;
             ertek=adatbazis[i].ertek;
+
         }
     }
     console.log(adatbazis);
     console.log(ertekesebb);
-    document.querySelector('#legertekesebb').innerHTML=ertekesebb;
+    document.querySelector('#legertekesebb').innerHTML="A " + adatbazis[0].klub+ " legértékesebb játékosa:" + ertekesebb +". Értéke  "+ ertek +" millió HUF.";
     
 }
 
