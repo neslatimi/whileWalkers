@@ -66,4 +66,19 @@ for(j=0; j<result.length; j++){
 }
 document.querySelector('#posztkiiratas').innerHTML=kiiras;
 }
+function  legertekesebb (){
+    document.querySelector('#legertekesebb').innerHTML="";
+    var ertekesebb=""+ adatbazis[0].vezeteknev + " " +adatbazis[0].utonev;
+    var ertek=adatbazis[0].ertek;
+    for(i=0; i<adatbazis.length; i++){
+        if(ertek<adatbazis[i].ertek){
+            ertekesebb=""+ adatbazis[i].vezeteknev + " " +adatbazis[i].utonev;
+            ertek=adatbazis[i].ertek;
+        }
+    }
+    console.log(adatbazis);
+    console.log(ertekesebb);
+    document.querySelector('#legertekesebb').innerHTML=ertekesebb;
+    
+}
 
