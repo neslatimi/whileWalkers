@@ -10,7 +10,7 @@
 </head>
 <body style="background-color: green">
     <header >
-        <img class="otpliga" height="217px" width="200px"  src="img/otpliga.png" alt="otpliga">
+        <img class="otpliga" height="217" width="200"  src="img/otpliga.png" alt="otpliga">
     </header>
     <div class="container">
         <div class="menu">
@@ -31,28 +31,27 @@
             </ul>
         </div>
         <div class="content">
+            <label for=""></label>
                 <div>
-                    <label for="poszt">Válassz posztot!</label><br>
-                    <select name="poszt" id="poszt" >
+                    <select name="poszt" class="poszt" >
                         <option value="kapus">kapusok</option>
                         <option value="védő">védők</option>
                         <option value="középpályás">középpályások</option>
                         <option value="csatár">csatárok</option>
                     </select>
-                <button class="mutasd" onclick="poszt()">mutasd a választott poszton játszó játékosokat!</button>
-                <button class="mutasd" onclick="legertekesebb();">Mutasd a legértékesebb játékost</button>
-               <div class="csere">
-                    <ul id="posztkiiratas" style="padding:0">
-                        
-                    </ul>
-                    </div>
-                    <div>
-                        <p id="legertekesebb"></p>
+                <button class="mutasd" onclick="poszt()">Mutasd a választott poszton játszó játékosokat!</button>
+                <button class="mutasd" onclick="legertekesebb();">Mutasd a legértékesebb játékost!</button>
+               
+            </div>
+            <div class="legertekesebb posztkiiratas ">
+                <ul >
+                    
+                </ul>
+                        <p ></p>
                     </div>
                </div>
                  
         </div>
-    </div>
     <script src="js/nb1.js"></script>
     <script src="js/norbi.js"></script>
 </body>

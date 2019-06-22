@@ -2,6 +2,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Noto Sans HK', sans-serif;
+}
+
+label{
+    margin:30px;
+    font-size: 150%;
+
 }
 
 body {
@@ -11,7 +18,7 @@ body {
 .container {
     width: 1140px;
     margin-left: 0;
-    height: 750px;
+    height: 665px;
     margin-right: auto;
 }
 
@@ -65,28 +72,35 @@ li button:hover {
     color: white;
 
 }
-#posztkiiratas {
+.posztkiiratas ul {
     margin:20px;
     padding: 0;
-    background: #8b929e;
+    background: #fff2f5;
     list-style-type: none;
+    padding:20px;
+    border-radius: 10px;
+    box-shadow:7px 10px 5px #493f42;
+
     
 }
-#posztkiiratas li {
-background: #bec9db;
-margin:10px;
+.posztkiiratas li {
+background: #e2dcdd;
+margin:15px;
 border-radius: 7px;
 text-align: center;
 padding:5px;
+box-shadow:7px 7px 5px #96ad95
 
 }
 
-#legertekesebb{
-    background: #1f435b;
+.legertekesebb p{
+    background: #1f4b68;
     margin:20px;
 border-radius: 8px;
 text-align:center;
 color:whitesmoke;
+padding:10px;
+box-shadow: 7px 7px 5px #07253a;
 }
 
 button.mutasd{
@@ -101,6 +115,15 @@ button.mutasd:hover{
     cursor: pointer;
 }
 select{
-    padding: 4px;
-    border-radius: 3px;
+    padding: 8px;
+    border-radius: 10px;
+    background: #f9eee8;
+    text-align: center;
+
 }
+option{
+    padding: 8px;
+
+}
+
+ 

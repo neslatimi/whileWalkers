@@ -1,4 +1,8 @@
-  function team(klub){
+var ertekesebb="";
+var ertek;
+var kiiras="";
+
+ function team(klub){
     var team=[];
     for(var i=0; i<data.length; i++){
         if(data[i].klub==klub){
@@ -11,11 +15,15 @@
 
 var adatbazis=[];
 function main(csapatnev){
-    document.querySelector('#poszt').setAttribute('onchange','');
-    document.querySelector('#legertekesebb').setAttribute('style','padding:0px');
-    document.querySelector('#posztkiiratas').setAttribute('style','padding:0;');
-    document.querySelector('#legertekesebb').innerHTML="";
-    document.querySelector('#posztkiiratas').innerHTML="";
+     ertekesebb="<p></p>";
+ ertek=undefined;
+ kiiras="<ul></ul>";
+
+    document.querySelector('.poszt').setAttribute('onchange','');
+    document.querySelector('.legertekesebb p').setAttribute('style','display:none');
+    document.querySelector('.posztkiiratas ul').setAttribute('style', 'display:none');
+    document.querySelector('.legertekesebb p').innerHTML="";
+    document.querySelector('.posztkiiratas ul').innerHTML="";
    
     var csapatok=[
         {klub:"Vasas FC",nev:"vasas", set:"background-color:#2056b2", logo:"/img/vasas.jpg"},
@@ -54,11 +62,11 @@ function main(csapatnev){
   console.log(adatbazis);
 
 }
-
+var kiiras="";
 function poszt(){
     var result=[];
-    var kiiras="";
-    var keresettPoszt=document.querySelector('#poszt').value;
+     kiiras="";
+    var keresettPoszt=document.querySelector('.poszt').value;
         for(i=0; i<adatbazis.length; i++){
             if(adatbazis[i].poszt.indexOf(keresettPoszt)!=-1){
                 result.push(adatbazis[i].vezeteknev +" "+ adatbazis[i].utonev+" [ "+adatbazis[i].poszt+" ]" );
@@ -70,25 +78,42 @@ function poszt(){
 for(j=0; j<result.length; j++){
     kiiras+="<li>"+result[j]+"</li>";
 }
-document.querySelector('#poszt').setAttribute('onchange','poszt();');
-document.querySelector('#posztkiiratas').setAttribute('style','padding:20px');
-document.querySelector('#posztkiiratas').innerHTML=kiiras;
+document.querySelector('.poszt').setAttribute('onchange','poszt();');
+
+if (ertek==undefined){
+    document.querySelector('.posztkiiratas ').innerHTML= "<ul>"+kiiras+"</ul>"+"<p></p>";
+    document.querySelector('.legertekesebb p').setAttribute('style', 'padding:0');
+
 }
+else{
+document.querySelector('.posztkiiratas ').innerHTML= "<ul>"+kiiras+"</ul>" + ertekesebb;
+}
+}
+
 function  legertekesebb (){
     
-    var ertekesebb=""+ adatbazis[0].vezeteknev + " " +adatbazis[0].utonev;
-    var ertek=adatbazis[0].ertek;
-    for(i=0; i<adatbazis.length; i++){
+    ertekesebb=""+ adatbazis[0].vezeteknev + " " +adatbazis[0].utonev;
+     ertek=adatbazis[0].ertek;
+    for(i=1; i<adatbazis.length; i++){
         if(ertek<adatbazis[i].ertek){
             ertekesebb=""+ adatbazis[i].vezeteknev + " " +adatbazis[i].utonev;
             ertek=adatbazis[i].ertek;
+            ertekesebb="<p> A " + adatbazis[0].klub+ " legértékesebb játékosa:" + ertekesebb +". Értéke  "+ ertek +" millió HUF.</p>"
 
         }
     }
 
-    console.log(adatbazis);
-    console.log(ertekesebb);
-    document.querySelector('#legertekesebb').innerHTML="A " + adatbazis[0].klub+ " legértékesebb játékosa:" + ertekesebb +". Értéke  "+ ertek +" millió HUF.";
-    document.querySelector('#legertekesebb').setAttribute('style','padding:10px');
+    if(kiiras=="<ul></ul>"){
+        document.querySelector('.legertekesebb').innerHTML=ertekesebb+"<ul></ul>";
+        document.querySelector('.legertekesebb ul').setAttribute('style', 'padding:0');
+
+
+    }
+    else{
+
+        document.querySelector('.legertekesebb').innerHTML=ertekesebb + "<ul>"+kiiras+"</ul>";
+   
+    }
+    
 }
 
