@@ -11,8 +11,12 @@
 
 var adatbazis=[];
 function main(csapatnev){
+    document.querySelector('#poszt').setAttribute('onchange','');
+    document.querySelector('#legertekesebb').setAttribute('style','padding:0px');
+    document.querySelector('#posztkiiratas').setAttribute('style','padding:0;');
     document.querySelector('#legertekesebb').innerHTML="";
     document.querySelector('#posztkiiratas').innerHTML="";
+   
     var csapatok=[
         {klub:"Vasas FC",nev:"vasas", set:"background-color:#2056b2", logo:"/img/vasas.jpg"},
          {klub:"Ferencvárosi TC", nev:"ftc", set:"background-color:green",logo:"/img/ftc.jpg"},
@@ -50,7 +54,7 @@ function main(csapatnev){
   console.log(adatbazis);
 
 }
-
+var kiiras="";
 function poszt(){
     var result=[];
     var keresettPoszt=document.querySelector('#poszt').value;
@@ -61,10 +65,12 @@ function poszt(){
             }
         }
 
-var kiiras="";
+
 for(j=0; j<result.length; j++){
     kiiras+="<li>"+result[j]+"</li>";
 }
+document.querySelector('#poszt').setAttribute('onchange','poszt();');
+document.querySelector('#posztkiiratas').setAttribute('style','padding:20px');
 document.querySelector('#posztkiiratas').innerHTML=kiiras;
 }
 function  legertekesebb (){
@@ -78,9 +84,10 @@ function  legertekesebb (){
 
         }
     }
+
     console.log(adatbazis);
     console.log(ertekesebb);
     document.querySelector('#legertekesebb').innerHTML="A " + adatbazis[0].klub+ " legértékesebb játékosa:" + ertekesebb +". Értéke  "+ ertek +" millió HUF.";
-    
+    document.querySelector('#legertekesebb').setAttribute('style','padding:10px');
 }
 

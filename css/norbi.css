@@ -65,3 +65,42 @@ li button:hover {
     color: white;
 
 }
+#posztkiiratas {
+    margin:20px;
+    padding: 0;
+    background: #8b929e;
+    list-style-type: none;
+    
+}
+#posztkiiratas li {
+background: #bec9db;
+margin:10px;
+border-radius: 7px;
+text-align: center;
+padding:5px;
+
+}
+
+#legertekesebb{
+    background: #1f435b;
+    margin:20px;
+border-radius: 8px;
+text-align:center;
+color:whitesmoke;
+}
+
+button.mutasd{
+    box-sizing: border-box;
+    margin-left:20px;
+    padding:5px;
+    background-color: #96ad95;
+    border-radius: 5px;
+    color:white;
+}
+button.mutasd:hover{
+    cursor: pointer;
+}
+select{
+    padding: 4px;
+    border-radius: 3px;
+}

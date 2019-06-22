@@ -33,21 +33,23 @@
         <div class="content">
                 <div>
                     <label for="poszt">Válassz posztot!</label><br>
-                    <select name="poszt" id="poszt">
+                    <select name="poszt" id="poszt" >
                         <option value="kapus">kapusok</option>
                         <option value="védő">védők</option>
                         <option value="középpályás">középpályások</option>
                         <option value="csatár">csatárok</option>
                     </select>
-                <button onclick="poszt()">mutasd!</button>
-                <ul id="posztkiiratas">
-                    
-                </ul>
-            <button onclick="legertekesebb();">Mutasd a legértékesebb játékost</button>
-                </div>
-                <div>
-                    <p id="legertekesebb"></p>
-                </div>
+                <button class="mutasd" onclick="poszt()">mutasd a választott poszton játszó játékosokat!</button>
+                <button class="mutasd" onclick="legertekesebb();">Mutasd a legértékesebb játékost</button>
+               <div class="csere">
+                    <ul id="posztkiiratas" style="padding:0">
+                        
+                    </ul>
+                    </div>
+                    <div>
+                        <p id="legertekesebb"></p>
+                    </div>
+               </div>
                  
         </div>
     </div>
