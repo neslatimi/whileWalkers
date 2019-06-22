@@ -373,6 +373,8 @@ function ClubsRepresented() {
     return result;
 }
 
+console.log(ClubsRepresented());
+
 
 function ertekByClub() {
     var result = [];
@@ -391,4 +393,6 @@ function ertekByClub() {
     return result;
 }
 
-var pie = ertekByClub();
+console.log(ertekByClub());
+
+
