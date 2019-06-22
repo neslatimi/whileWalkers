@@ -54,9 +54,10 @@ function main(csapatnev){
   console.log(adatbazis);
 
 }
-var kiiras="";
+
 function poszt(){
     var result=[];
+    var kiiras="";
     var keresettPoszt=document.querySelector('#poszt').value;
         for(i=0; i<adatbazis.length; i++){
             if(adatbazis[i].poszt.indexOf(keresettPoszt)!=-1){
