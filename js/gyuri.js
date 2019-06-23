@@ -19,7 +19,7 @@ for (var i = 0; i < clubs.length; i++) {
 document.querySelector("#klubok").innerHTML = klubHtml;
 
 function jatekosLista() {
-    var valasztott = document.querySelector("#klubok").value;
+    var valasztott = document.querySelector("#klubok option:checked").value;
     var jatekosok = [];
     console.log(valasztott);
     for (var i = 0; i < data.length; i++) {
@@ -27,22 +27,28 @@ function jatekosLista() {
             jatekosok.push(data[i]);
         }
     }
+    return jatekosok;
 }
 
 
-function nemzetiseg() {
-    var magyar = [];
-    var kulfoldi = [];
-    var kettos = [];
-    for (var i = 0; i < data.length; i++) {
-        if (data[i].magyar == true && data[i].kulfoldi == true) {
-            kettos.push(data[i]);
-        } else if (data[i].magyar == true) {
-            magyar.push(data[i]);
+function nemzetiseg(szukitettTomb) {
+    var nemzetiObject = { magyar: [], kulfoldi: [], kettos: [] };
+    document.getElementById('magyar').innerHTML = '';
+    document.getElementById('kulfoldi').innerHTML = '';
+    document.getElementById('kettos').innerHTML = '';
+    for (var i = 0; i < szukitettTomb.length; i++) {
+        if ((szukitettTomb[i].magyar == true) && (szukitettTomb[i].kulfoldi == false)) {
+            nemzetiObject.magyar.push(szukitettTomb[i]);
+            document.getElementById('magyar').innerHTML += '<li>' + szukitettTomb[i].vezeteknev + ' ' + szukitettTomb[i].utonev + '</li>';
+        } else if ((szukitettTomb[i].magyar == false) && (szukitettTomb[i].kulfoldi == true)) {
+            nemzetiObject.kulfoldi.push(szukitettTomb[i]);
+            document.getElementById('kulfoldi').innerHTML += '<li>' + szukitettTomb[i].vezeteknev + ' ' + szukitettTomb[i].utonev + '</li>';
         } else {
-            kulfoldi.push(data[i]);
+            nemzetiObject.kettos.push(szukitettTomb[i]);
+            document.getElementById('kettos').innerHTML += '<li>' + szukitettTomb[i].vezeteknev + ' ' + szukitettTomb[i].utonev + '</li>';
         }
     }
+    return nemzetiObject;
 }
 
 
@@ -53,5 +59,5 @@ var magyarJatekosok = "";
 for (var i = 0; i < magyar.length; i++) {
     magyarJatekosok += "<li>" + magyar[i] + "</li>";
 }
-document.getElementById("magyar").innerHTML = magyarJatekosok;​
+document.getElementById("magyar").innerHTML = magyarJatekosok;
 }*/
