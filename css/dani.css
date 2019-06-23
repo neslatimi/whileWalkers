@@ -11,6 +11,10 @@ table {
     table-layout:fixed;
 }
 
+td {
+    vertical-align:top;
+}
+
 button[type=button] {
     background-color: #4CAF50;
     border: none;
