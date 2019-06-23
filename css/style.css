@@ -46,4 +46,27 @@ background-image: url(/img/110884612-green-grass-background-nature-texture.jpg);
     color: white;
     text-decoration: none;
   }
-  
+  /*Evelin formázása*/
+  .skth{
+    background-color: 	#9CC4A4;
+    color: #8A683A;
+    text-emphasis: none;
+    font-family: cursive;
+  }
+
+  .skth h1{
+    color: 			#C63D44;
+    text-shadow: 1px 1px 2px #C63D44, 0 0 1em #3B77B3, 0 0 0.2em blue;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 1cm;
+  }
+
+ .skth h2 {
+    color: 	#3B77B3;
+    text-shadow: #5C6772 1px 1px 10px;
+}
+.skth h3{
+    color: #6D7E8F;
+    text-shadow: #5C6772 1px 1px 10px;
+}
