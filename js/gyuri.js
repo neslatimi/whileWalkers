@@ -42,7 +42,6 @@ function nemzetiseg() {
         } else {
             kulfoldi.push(data[i]);
         }
-        document.getElementById("magyar").innerHTML = "<li>" + magyar[i] + "</li>";
     }
 }
 

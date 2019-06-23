@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport"
+            content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible"
+            content="ie=edge">
+      <link rel="stylesheet"
+            type="text/css"
+            href="/css/style.css" />
+      <link rel="stylesheet"
+            type="text/css"
+            href="/css/dani.css" />
+      <title>Biography</title>
+</head>
+
+<body>
+      <div id="szar"></div>
+      <script src="/js/nb1.js"></script>
+      <script>
+            function CalculateAge(szulido) {
+                  var age = -99;
+                  var dtToday = new Date();
+                  var dtBirthdate = new Date(szulido);
+                  age = dtToday.getFullYear() - dtBirthdate.getFullYear();
+                  return age;
+            }
+            var biotomb = [];
+            for (var i = 0; i < data.length; i++) {
+                  biotomb.push({ nev: data[i].vezeteknev + ' ' + data[i].utonev, eletkor: CalculateAge(data[i].szulido), klubja: data[i].klub, poszt: data[i].poszt })
+                  document.querySelector('#szar').innerHTML += '<span id="' + biotomb[i].nev + '">' + biotomb[i].nev + '</span>' + '<br>' + 'Életkora: ' + biotomb[i].eletkor + '<br>' + 'Játszott posztja: ' + biotomb[i].poszt + '<br>' + 'Jelenlegi klubja: ' + biotomb[i].klubja + '<br>' + '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum consectetur quia error deleniti cum perspiciatis, facilis, possimus repellendus ullam doloremque dolorem neque totam aut sint dolorum accusamus enim deserunt quas? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, laudantium, quos rerum, consequuntur atque aliquid reprehenderit possimus consectetur quas vitae odio sint iusto saepe. Magni, sapiente. Aliquid cum enim architecto.</p>' + '<br><br>';
+            }
+      </script>
+</body>
+
+</html>

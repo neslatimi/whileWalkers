@@ -5,9 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>While Walker</title>
+    
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <link rel="stylesheet"
     type="text/css"
     href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/timi.css">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
 </head>
 <body>
         <div id="container">
@@ -15,7 +19,7 @@
                 <header class="main-header">
                   <img class="main-logo-img" src="/img/httpssjsports_files_wordpress_com201105sjswhitelogo.jpg" alt="JS logo"></img>
                   <ul class="main-nav">
-                    <li><a href="/index.html">Főoldal</a></li>
+                    <li><a href="/index.html">Timi</a></li>
                     <li><a href="/Dani.html">Dani</a></li>
                     <li><a href="/Evelin.html">Evelin</a></li>
                     <li><a href="/Norbi.html">Norbi</a></li>
@@ -24,20 +28,162 @@
                 </header>
               
                 <div class="primary-content col">
-                  <h2>Primary Content</h2>
-                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut, repellendus! Vero, aut ea sed perspiciatis qui numquam a accusantium minima magni perferendis incidunt unde repudiandae eligendi. Ducimus mollitia officia consequatur.</p>
+                  <h2>A top 10 legértékesebb játékos:</h2>
+                
+                <!--A flip boxok-->
+            
+                    <div class="flip-box">
+                      <div class="flip-box-inner">
+                        <div class="flip-box-front">
+                          <span id="1"></span> 
+                        </div>
+                        <div class="flip-box-back">
+                          <img class="photos" src="/img/adam-martin.jpg" alt="martin">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flip-box">
+                      <div class="flip-box-inner">
+                        <div class="flip-box-front">
+                          <span id="2"></span> 
+                        </div>
+                        <div class="flip-box-back">
+                          <img class="photos" src="/img/amadou.jpg" alt="martin">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flip-box">
+                      <div class="flip-box-inner">
+                        <div class="flip-box-front">
+                          <span id="3"></span> 
+                        </div>
+                        <div class="flip-box-back">
+                          <img class="photos" src="/img/andrić-nemanja.jpg" alt="martin">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flip-box">
+                      <div class="flip-box-inner">
+                        <div class="flip-box-front">
+                          <span id="4"></span> 
+                        </div>
+                        <div class="flip-box-back">
+                          <img class="photos" src="/img/angelov viktor.jpg" alt="martin">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flip-box">
+                      <div class="flip-box-inner">
+                        <div class="flip-box-front">
+                          <span id="5"></span> 
+                        </div>
+                        <div class="flip-box-back">
+                          <img class="photos" src="/img/AntalBotond.jpg" alt="martin">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flip-box">
+                      <div class="flip-box-inner">
+                        <div class="flip-box-front">
+                          <span id="6"></span> 
+                        </div>
+                        <div class="flip-box-back">
+                          <img class="photos" src="/img/bachana_arabuli.jpg" alt="martin">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flip-box">
+                      <div class="flip-box-inner">
+                        <div class="flip-box-front">
+                          <span id="7"></span> 
+                        </div>
+                        <div class="flip-box-back">
+                          <img class="photos" src="/img/bacelic-grgic.jpg" alt="martin">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flip-box">
+                      <div class="flip-box-inner">
+                        <div class="flip-box-front">
+                          <span id="8"></span> 
+                        </div>
+                        <div class="flip-box-back">
+                          <img class="photos" src="/img/BacsaPatrik.jpg" alt="martin">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flip-box">
+                      <div class="flip-box-inner">
+                        <div class="flip-box-front">
+                          <span id="9"></span> 
+                        </div>
+                        <div class="flip-box-back">
+                          <img class="photos" src="/img/balazs-benjamin.jpg" alt="martin">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flip-box">
+                      <div class="flip-box-inner">
+                        <div class="flip-box-front">
+                          <span id="10"></span> 
+                        </div>
+                        <div class="flip-box-back">
+                          <img class="photos" src="/img/balo-tamas.jpg" alt="martin">
+                        </div>
+                      </div>
+                    </div>              
                 </div>
-              
                 <div class="secondary-content col">
-                  <h3>Secondary Content</h3>
-                  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate fuga tempora, magnam repellendus inventore et praesentium repudiandae commodi labore mollitia, sit vel sed consectetur repellat, necessitatibus ad debitis possimus eaque.</p>
+                  <h2>Diagram a csapatok értékei alapján:</h2>
                   
-                </div>
-              
-        
-              
+                </div>            
           </div>
+
+
+          <!--ne kérdezzétek, nem tudom, hogy működik....-->
+
+          <div id="chartContainer" style="height: 370px; width: 100%;"></div>
           <script type="text/javascript" src="/js/timi.js"></script> 
+          <script>
+            window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	theme: "light2", // "light1", "light2", "dark1", "dark2"
+	title:{
+		text: "A csapatok értékei"
+	},
+	axisY: {
+		title: "Érték"
+	},
+	data: [{        
+		type: "column",  
+		showInLegend: true, 
+		legendMarkerColor: "grey",
+		legendText: "Csapatok",
+		dataPoints: [      
+			{ y: 13300, label: "Ferencvárosi TC" },
+			{ y: 6900,  label: "Budapest Honvéd FC" },
+			{ y: 10625,  label: "Videoton FC" },
+			{ y: 7750,  label: "Vasas FC" },
+			{ y: 7825,  label: "Puskás Akadémia FC" },
+			{ y: 6100, label: "Debreceni VSC" },
+			{ y: 5125,  label: "Diósgyőri VTK" },
+			{ y: 4925,  label: "Szombathelyi Haladás" },
+      { y: 6025,  label: "Újpest FC" },
+         { y: 5250,  label: "Mezőkövesd Zsóry FC" },
+            { y: 4700,  label: "Paksi FC" },
+                    { y: 3925,  label: "Balmazújváros FC" },
+      
+ 
+		]
+	}]
+});
+chart.render();
+
+}
+
+          </script>
 </body>
 </html>
 

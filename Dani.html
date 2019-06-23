@@ -1,47 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible"
+          content="ie=edge">
     <title>While Walker</title>
     <link rel="stylesheet"
-    type="text/css"
-    href="/css/style.css" />
+          type="text/css"
+          href="/css/style.css" />
+    <link rel="stylesheet"
+          type="text/css"
+          href="/css/dani.css" />
 </head>
+
 <body>
-        <div id="container">
+    <div id="container">
 
-                <header class="main-header">
-                  <img class="main-logo-img" src="/img/httpssjsports_files_wordpress_com201105sjswhitelogo.jpg" alt="JS logo"></img>
-                  <ul class="main-nav">
-                    <li><a href="/index.html">Főoldal</a></li>
-                    <li><a href="/Dani.html">Dani</a></li>
-                    <li><a href="/Evelin.html">Evelin</a></li>
-                    <li><a href="/Norbi.html">Norbi</a></li>
-                    <li><a href="/Gyuri.html">Gyuri</a></li>
-                  </ul>
-                </header>
-              
-                <div class="primary-content col">
-                  <h2>Primary Content</h2>
-                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut, repellendus! Vero, aut ea sed perspiciatis qui numquam a accusantium minima magni perferendis incidunt unde repudiandae eligendi. Ducimus mollitia officia consequatur.</p>
+        <header class="main-header">
+            <img class="main-logo-img"
+                 src="/img/httpssjsports_files_wordpress_com201105sjswhitelogo.jpg"
+                 alt="JS logo">
+            <ul class="main-nav">
+                <li><a href="/index.html">Timi</a></li>
+                <li><a href="/Dani.html">Dani</a></li>
+                <li><a href="/Evelin.html">Evelin</a></li>
+                <li><a href="/Norbi.html">Norbi</a></li>
+                <li><a href="/Gyuri.html">Gyuri</a></li>
+            </ul>
+        </header>
+        <br>
+        <div class="primary-content col">
+            <div>
+                <div style="display: inline-block"
+                     class="select-style">
+                    <select name="elsoCsapat"
+                            id="elsoCsapat"
+                            onchange="elsoCsapat()">
+                        <option selected>Vasas FC</option>
+                        <option disabled>Ferencvárosi TC</option>
+                        <option>Balmazújváros FC</option>
+                        <option>Újpest FC</option>
+                        <option>Diósgyőri VTK</option>
+                        <option>Puskás Akadémia FC</option>
+                        <option>Paksi FC</option>
+                        <option>Szombathelyi Haladás</option>
+                        <option>Budapest Honvéd FC</option>
+                        <option>Mezőkövesd Zsóry FC</option>
+                        <option>Videoton FC</option>
+                        <option>Debreceni VSC</option>
+                    </select>
                 </div>
-              
-                <div class="secondary-content col">
-                  <h3>Secondary Content</h3>
-                  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate fuga tempora, magnam repellendus inventore et praesentium repudiandae commodi labore mollitia, sit vel sed consectetur repellat, necessitatibus ad debitis possimus eaque.</p>
-                  
+                <div style="display: inline-block"
+                     class="select-style">
+                    <select name="masodikCsapat"
+                            id="masodikCsapat"
+                            onchange="masodikCsapat()">
+                        <option disabled>Vasas FC</option>
+                        <option selected>Ferencvárosi TC</option>
+                        <option>Balmazújváros FC</option>
+                        <option>Újpest FC</option>
+                        <option>Diósgyőri VTK</option>
+                        <option>Puskás Akadémia FC</option>
+                        <option>Paksi FC</option>
+                        <option>Szombathelyi Haladás</option>
+                        <option>Budapest Honvéd FC</option>
+                        <option>Mezőkövesd Zsóry FC</option>
+                        <option>Videoton FC</option>
+                        <option>Debreceni VSC</option>
+                    </select>
                 </div>
-              
-        
-              
-          </div>
-          <script type="text/javascript" src="/js/timi.js"></script> 
+                <div style="display: inline-block"
+                     class="select-style">
+                    <select name="szures"
+                            id="szures">
+                        <option value="6">Csapatnévsor</option>
+                        <option value="3">Összérték</option>
+                        <option value="4">A legértékesebb játékosok</option>
+                        <option value="5">Létszám nemzetiség szerint</option>
+                        <option value="1">Legidőssebb játékos</option>
+                        <option value="2">Legfiatalabb játékos</option>
+                    </select>
+                </div>
+                <div style="display: inline-block"
+                     class="select-style">
+                    <button type="button"
+                            onclick="melyikSzures()">Összehasonlítás</button>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="secondary-content">
+            <table style="width: 100%">
+                <tr>
+                    <td id="csapat1">Hasonlítsd össze a csapatokat!</td>
+                    <td id="csapat2"></td>
+                </tr>
+                <tr>
+                    <td id="info1"></td>
+                    <td id="info2"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script src="/js/nb1.js"></script>
+    <script src="/js/dani.js"></script>
 </body>
+
 </html>
-
-
-
-
-
