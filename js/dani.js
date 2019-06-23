@@ -170,16 +170,14 @@ function melyikSzures() {
         case 6:
             document.querySelector('#info1').innerHTML = '';
             document.querySelector('#info2').innerHTML = '';
-            document.querySelector('#info1').innerHTML += '<ul>';
-            document.querySelector('#info2').innerHTML += '<ul>';
+            document.querySelector('#info1').innerHTML += '<ul id="list1"></ul>';
+            document.querySelector('#info2').innerHTML += '<ul id="list2"></ul>';
             for (var i = 0; i < elsoCsapat().length; i++) {
-                document.querySelector('#info1').innerHTML += '<li>' + '<a href="/lista.html#' + elsoCsapat()[i].vezeteknev + ' ' + elsoCsapat()[i].utonev + '" target="_blank">' + elsoCsapat()[i].vezeteknev + ' ' + elsoCsapat()[i].utonev + '</a>' + '</li>';
+                document.querySelector('#list1').innerHTML += '<li>' + '<a href="/lista.html#' + elsoCsapat()[i].vezeteknev + ' ' + elsoCsapat()[i].utonev + '" target="_blank">' + elsoCsapat()[i].vezeteknev + ' ' + elsoCsapat()[i].utonev + '</a>' + '</li>';
             }
             for (var i = 0; i < masodikCsapat().length; i++) {
-                document.querySelector('#info2').innerHTML += '<li>' + '<a href="/lista.html#' + masodikCsapat()[i].vezeteknev + ' ' + masodikCsapat()[i].utonev + '" target="_blank">' + masodikCsapat()[i].vezeteknev + ' ' + masodikCsapat()[i].utonev + '</a>' + '</li>';
+                document.querySelector('#list2').innerHTML += '<li>' + '<a href="/lista.html#' + masodikCsapat()[i].vezeteknev + ' ' + masodikCsapat()[i].utonev + '" target="_blank">' + masodikCsapat()[i].vezeteknev + ' ' + masodikCsapat()[i].utonev + '</a>' + '</li>';
             }
-            document.querySelector('#info1').innerHTML += '</ul>';
-            document.querySelector('#info2').innerHTML += '</ul>';
             break;
     }
 }
