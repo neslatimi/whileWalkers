@@ -62,7 +62,6 @@ function teamValue(csapat) {
 
 function threeTopPlayers(csapat) {
     var haromlegjobb = [];
-    var legtobb = csapat[0].ertek;
     for (var i = 0; i < (csapat.length - 1); i++) {
         for (var j = i + 1; j < csapat.length; j++) {
             if (csapat[i].ertek < csapat[j].ertek) {
