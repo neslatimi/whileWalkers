@@ -16,6 +16,7 @@ td {
 }
 
 button[type=button] {
+    box-shadow: -2px -2px rgb(16, 105, 4);
     background-color: #4CAF50;
     border: none;
     color: white;
@@ -34,7 +35,7 @@ button[type=button] {
     padding: 15px 32px;
     border-radius: 10px;
     width: 100%;
-    box-shadow: none;
+    box-shadow:-2px -2px rgb(16, 105, 4);
     background: #bfe3d0 no-repeat 90% 50%;
     background-image: none;
     -webkit-appearance: none;
