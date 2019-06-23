@@ -9,14 +9,42 @@ function csapatSzures(csapatNev) {
 }
 
 function elsoCsapat() {
+    var els = document.querySelectorAll('#masodikCsapat option');
+    for (var i = 0; i < els.length; i++) {
+        els[i].removeAttribute("disabled");
+    }
     var elsoCsapatNev = document.querySelector('#elsoCsapat option:checked').innerText;
     var elsoCsapat = csapatSzures(elsoCsapatNev);
+    var options = document.querySelectorAll('#masodikCsapat option');
+    var searchText = elsoCsapatNev;
+    var found;
+    for (var i = 0; i < options.length; i++) {
+        if (options[i].textContent == searchText) {
+            found = options[i];
+            break;
+        }
+    }
+    found.disabled = true;
     return elsoCsapat
 }
 
 function masodikCsapat() {
+    var els = document.querySelectorAll('#elsoCsapat option');
+    for (var i = 0; i < els.length; i++) {
+        els[i].removeAttribute("disabled");
+    }
     var masodikCsapatNev = document.querySelector('#masodikCsapat option:checked').innerText;
     var masodikCsapat = csapatSzures(masodikCsapatNev);
+    var options = document.querySelectorAll('#elsoCsapat option');
+    var searchText = masodikCsapatNev;
+    var found;
+    for (var i = 0; i < options.length; i++) {
+        if (options[i].textContent == searchText) {
+            found = options[i];
+            break;
+        }
+    }
+    found.disabled = true;
     return masodikCsapat
 }
 
