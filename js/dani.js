@@ -93,15 +93,6 @@ function Nationalities(csapat) {
 }
 
 
-// Bio page
-var biotomb = [];
-for (var i = 0; i < data.length; i++) {
-    biotomb.push({ nev: data[i].vezeteknev + ' ' + data[i].utonev, eletkor: CalculateAge(data[i].szulido), poszt: data[i].poszt })
-    document.querySelector('#szar').innerHTML += '<span id="' + biotomb[i].nev + '">' + biotomb[i].nev + '</span>' + '<br>' + biotomb[i].eletkor + '<br>' + biotomb[i].poszt + '<br>' + '<br>';
-}
-
-
-
 
 function melyikSzures() {
     var node = document.querySelector('#szures');
@@ -179,6 +170,8 @@ function ClubsRepresented() {
     return result;
 }
 
+console.log(ClubsRepresented());
+
 function valueByClub() {
     var result = [];
     var klubbok = ClubsRepresented();
@@ -195,3 +188,5 @@ function valueByClub() {
     }
     return result;
 }
+
+console.log(valueByClub());

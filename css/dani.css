@@ -1,5 +1,41 @@
-#csapat1, #csapat2 {
+#csapat1, #csapat2, span {
     font-size: 20px;
     font-weight: bold;
 }
 
+#szar{
+    background-color: #bfe3d0;
+}
+
+table {
+    table-layout:fixed;
+}
+
+button[type=button] {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+
+.select-style select {
+    border: 1px solid rgb(24, 26, 25);
+    width: 200px;
+    padding: 15px 32px;
+    border-radius: 10px;
+    width: 100%;
+    box-shadow: none;
+    background: #bfe3d0 no-repeat 90% 50%;
+    background-image: none;
+    -webkit-appearance: none;
+}
+
+.select-style select:focus {
+    outline: none;
+}
