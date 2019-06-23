@@ -31,16 +31,16 @@
                 <li><a href="/Gyuri.html">Gyuri</a></li>
             </ul>
         </header>
-
+        <br>
         <div class="primary-content col">
             <div>
-                <h1>Összehasonlítás</h1>
-                <div style="display: inline-block">
+                <div style="display: inline-block"
+                     class="select-style">
                     <select name="elsoCsapat"
                             id="elsoCsapat"
                             onchange="elsoCsapat()">
-                        <option>Vasas FC</option>
-                        <option>Ferencvárosi TC</option>
+                        <option selected>Vasas FC</option>
+                        <option disabled>Ferencvárosi TC</option>
                         <option>Balmazújváros FC</option>
                         <option>Újpest FC</option>
                         <option>Diósgyőri VTK</option>
@@ -53,12 +53,13 @@
                         <option>Debreceni VSC</option>
                     </select>
                 </div>
-                <div style="display: inline-block">
+                <div style="display: inline-block"
+                     class="select-style">
                     <select name="masodikCsapat"
                             id="masodikCsapat"
                             onchange="masodikCsapat()">
-                        <option name="Vasas FC">Vasas FC</option>
-                        <option>Ferencvárosi TC</option>
+                        <option disabled>Vasas FC</option>
+                        <option selected>Ferencvárosi TC</option>
                         <option>Balmazújváros FC</option>
                         <option>Újpest FC</option>
                         <option>Diósgyőri VTK</option>
@@ -71,27 +72,30 @@
                         <option>Debreceni VSC</option>
                     </select>
                 </div>
-                <div style="display: inline-block">
+                <div style="display: inline-block"
+                     class="select-style">
                     <select name="szures"
                             id="szures">
+                        <option value="6">Csapatnévsor</option>
+                        <option value="3">Összérték</option>
+                        <option value="4">A legértékesebb játékosok</option>
+                        <option value="5">Létszám nemzetiség szerint</option>
                         <option value="1">Legidőssebb játékos</option>
                         <option value="2">Legfiatalabb játékos</option>
-                        <option value="3">Összérték</option>
-                        <option value="4">A 3 legértékesebb játékos</option>
-                        <option value="5">Létszám nemzetiség szerint</option>
-                        <option value="6">Csapatnévsor</option>
                     </select>
+                </div>
+                <div style="display: inline-block"
+                     class="select-style">
                     <button type="button"
                             onclick="melyikSzures()">Összehasonlítás</button>
                 </div>
             </div>
-            <hr>
         </div>
-
+        <br>
         <div class="secondary-content">
             <table style="width: 100%">
                 <tr>
-                    <td id="csapat1"></td>
+                    <td id="csapat1">Hasonlítsd össze a csapatokat!</td>
                     <td id="csapat2"></td>
                 </tr>
                 <tr>
@@ -99,9 +103,7 @@
                     <td id="info2"></td>
                 </tr>
             </table>
-
         </div>
-
     </div>
     <script src="/js/nb1.js"></script>
     <script src="/js/dani.js"></script>
