@@ -65,8 +65,14 @@ background-image: url(/img/110884612-green-grass-background-nature-texture.jpg);
  .skth h2 {
     color: 	#3B77B3;
     text-shadow: #5C6772 1px 1px 10px;
+    text-align: center;
 }
 .skth h3{
     color: #6D7E8F;
     text-shadow: #5C6772 1px 1px 10px;
+    text-align: center;
 }
+
+/*.skth table{
+  border: 2px solid black
+}*/

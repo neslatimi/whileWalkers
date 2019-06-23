@@ -312,49 +312,74 @@ var nb1data=[
     ,{vezeteknev:"Zsiga",utonev:"Ervin",szulido:"1991-07-11",magyar:true,kulfoldi:true,ertek:125,klub:"Balmazújváros FC",mezszam:10,poszt:"jobb szélső"}
     ,{vezeteknev:"Zsótér",utonev:"Donát",szulido:"1996-01-06",magyar:true,kulfoldi:false,ertek:300,klub:"Újpest FC",mezszam:10,poszt:"jobb szélső"}
     ];
-
-    function PlayersWithName(keresettNev){
+    function magyarVagye(){
+        var result=[];
+        for (var i=0; i<nb1data.length; i++){
+            if(nb1data[i].magyar==true && nb1data[i].kulfoldi==false){
+                result.push(nb1data[i].vezeteknev+" "+nb1data[i].utonev+" - "+'magyar'+" - "+nb1data[i].poszt);
+            }
+            if(nb1data[i].magyar==true && nb1data[i].kulfoldi==true){
+                result.push(nb1data[i].vezeteknev+" "+nb1data[i].utonev+" - "+'kettős állampolgár'+" - "+nb1data[i].poszt);
+            }
+            if(nb1data[i].magyar==false && nb1data[i].kulfoldi==true){
+                result.push(nb1data[i].vezeteknev+" "+nb1data[i].utonev+" - "+'külföldi'+" - "+nb1data[i].poszt);
+            }
+        }
+        var nevkiiras="";
+        for(j=0; j<result.length; j++){
+            nevkiiras+="<li>"+result[j]+"</li>";
+            }
+            document.querySelector('#magyar').innerHTML=nevkiiras;
+        };
+            
+    
+    function PlayersWithName(){
+        var keresettNev=document.querySelector('#keresztnev').value; 
         var result=[];
         for(var i=0; i<nb1data.length; i++){
             if(nb1data[i].utonev.indexOf(keresettNev)!=-1){
-                result.push(nb1data[i]);
+                result.push(nb1data[i].vezeteknev +" "+ nb1data[i].utonev+" - "+nb1data[i].klub+" - "+nb1data[i].szulido);
                         }
             }
-            return result;
-    };
-    console.log('PlayersWithName "Tamás": ', PlayersWithName('Tamás'));
-
-    function magyarVagye(){
-var result=[];
-for (var i=0; i<nb1data.length; i++){
-    if(nb1data[i].magyar==true && nb1data[i].kulfoldi==false){
-        result.push(nb1data[i].utonev, nb1data[i].vezeteknev, 'magyar');
-    }
-    if(nb1data[i].magyar==true && nb1data[i].kulfoldi==true){
-        result.push(nb1data[i].utonev, nb1data[i].vezeteknev, 'kettős állampolgár');
-    }
-    if(nb1data[i].magyar==false && nb1data[i].kulfoldi==true){
-        result.push(nb1data[i].utonev, nb1data[i].vezeteknev, 'külföldi');
-    }
+            var kiiras="";
+for(j=0; j<result.length; j++){
+    kiiras+="<li>"+result[j]+"</li>";
 }
-return result;
-    }
-    console.log(magyarVagye());
-    
+document.querySelector('#nevkiiratas').innerHTML=kiiras;
+    };
+    //console.log(PlayersWithName());
+  
+   
 
+/*function formatAdapter(nb1data){
+return Object.keys(nb1data).map(item)
+};
+
+    var formmatedData = PlayersWithName();
     var table = document.getElementById("nevsor");
-    var tbody = document.createElement("tbody");
-    table.appendChild(tbody);
-    nb1data.forEach(function(items){
-        var row=document.createElement('tr');
-        items.forEach(function(item){
-            var cell=document.createElement("td");
-            cell.textContent = item;
-            row.appendChild(cell);
-        });
-        table.appendChild(row);
-    });
+    var tbody = document.getElementById('tbody');
+
+// generate the header
+tbody.innerHTML += "<tr>" + 
+                   "<th id='n'>" + "Név" + "</th>" +
+                   "<th id='p'>" + "Poszt" + "</th>" +
+                   "<th id='kl'>" + "Klub" + "</th>" +
+                   "</tr>"
+// generate the rows(Html) for each item
+
+let rowHtmls = formmatedData.map((utonev) => {
+  let row = '<tr><td rowspan="'+(utonev[1].length || 1) +'">'+utonev[0]+'</td>'
+            + '<td>'+utonev[1][0]+'</td>'
+            + '<td rowspan="'+(utonev[1].length || 1)+'">'+utonev[2]+'</td></tr>'
+  row += utonev[1];
+  return row
+})
+
+// combine header(html) and rows(html)
+tbody.innerHTML += rowHtmls.reduce((pre, cur) => {
+  return pre+cur
+}, '')
 
     function mezszamNovekvo(){
 
-    }
+    }*/
