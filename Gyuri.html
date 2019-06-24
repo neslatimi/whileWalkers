@@ -31,16 +31,25 @@
 
     <div class="primary-content col">
       <select name=""
-              id="klubok">
+              id="klubok"
+              onchange="jatekosLista(); nemzetiseg(jatekosLista());">
 
       </select>
     </div>
 
     <div class="secondary-content col">
-      <ol id="magyar">
+      <p>Magyar játékosok:</p>
+      <ul id="magyar">
 
-      </ol>​
+      </ul>​
+      <p>Külföldi játékosok:</p>
+      <ul id="kulfoldi">
 
+      </ul>​
+      <p>Kettős állampolgársságú játékosok:</p>
+      <ul id="kettos">
+
+      </ul>​
     </div>
 
 
