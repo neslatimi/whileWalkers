@@ -1,4 +1,10 @@
-  function team(klub){
+var ertekesebb="";
+var ertek;
+var kiiras="";
+var adatbazis=[];
+var kiiras="";
+// kiválogattja a választott csapatba tartozó játékosokat
+ function team(klub){
     var team=[];
     for(var i=0; i<data.length; i++){
         if(data[i].klub==klub){
@@ -9,11 +15,22 @@
 }
 
 
-var adatbazis=[];
+//main függvény, minden csapatválasztáskor meghívom, beállítja a stílust és létrehozza az átmeneti adatbázist
 function main(csapatnev){
-    document.querySelector('#legertekesebb').innerHTML="";
-    document.querySelector('#posztkiiratas').innerHTML="";
+    //a stílusbeállítások resetelése
+     ertekesebb="<p></p>";
+ ertek=undefined;
+ kiiras="<ul></ul>";
+
+    document.querySelector('.poszt').setAttribute('onchange','');
+    document.querySelector('.legertekesebb p').setAttribute('style','display:none');
+    document.querySelector('.posztkiiratas ul').setAttribute('style', 'display:none');
+    document.querySelector('.legertekesebb p').innerHTML="";
+    document.querySelector('.posztkiiratas ul').innerHTML="";
+   
+    // az egyes csapatokhoz tartozó stílusok 
     var csapatok=[
+        {klub:"teljesNb1", nev:"teljesNB1", set:"background-color: green", logo:"img/otpliga.png"},
         {klub:"Vasas FC",nev:"vasas", set:"background-color:#2056b2", logo:"/img/vasas.jpg"},
          {klub:"Ferencvárosi TC", nev:"ftc", set:"background-color:green",logo:"/img/ftc.jpg"},
         {klub: "Balmazújváros FC", nev:"balmaz", set:"background-color:#f45f0e",logo:"/img/balmaz.png" },
@@ -27,7 +44,8 @@ function main(csapatnev){
         {klub:"Videoton FC", nev:"videoton", set:"background-color:#180a51", logo:"/img/videoton.png"},
         {klub:"Debreceni VSC", nev:"debrecen", set:"background-color:#ce0a0a", logo:"/img/debrecen.png"},
         ];
-        
+
+        //a paraméterként kapott csapathoz tartozó stílus kiválasztása
         var logo=document.querySelector('.otpliga');
     var body=document.querySelector('body');
     var set="";
@@ -42,18 +60,26 @@ function main(csapatnev){
             break;
         }
     }
-   
+   //a csapathoz tartozó stílus beállítása
     body.setAttribute("style", set);
     logo.setAttribute('src',picture);
 
+    //csapat kiválogatása a team függvénnyel
+    if(csapatnev=="teljesNB1"){
+        adatbazis=data;
+    }
+    else{
   adatbazis=team(klub);
-  console.log(adatbazis);
+        }
+//console.log(adatbazis);
 
 }
+main("teljesNB1");
 
 function poszt(){
     var result=[];
-    var keresettPoszt=document.querySelector('#poszt').value;
+     kiiras="";
+    var keresettPoszt=document.querySelector('.poszt').value;
         for(i=0; i<adatbazis.length; i++){
             if(adatbazis[i].poszt.indexOf(keresettPoszt)!=-1){
                 result.push(adatbazis[i].vezeteknev +" "+ adatbazis[i].utonev+" [ "+adatbazis[i].poszt+" ]" );
@@ -61,25 +87,51 @@ function poszt(){
             }
         }
 
-var kiiras="";
+
 for(j=0; j<result.length; j++){
     kiiras+="<li>"+result[j]+"</li>";
 }
-document.querySelector('#posztkiiratas').innerHTML=kiiras;
+document.querySelector('.poszt').setAttribute('onchange','poszt();');
+
+if (ertek==undefined){
+    document.querySelector('.posztkiiratas ').innerHTML= "<ul>"+kiiras+"</ul>"+"<p></p>";
+    document.querySelector('.legertekesebb p').setAttribute('style', 'padding:0');
+
 }
+else{
+document.querySelector('.posztkiiratas ').innerHTML= "<ul>"+kiiras+"</ul>" + ertekesebb;
+}
+}
+
 function  legertekesebb (){
     
-    var ertekesebb=""+ adatbazis[0].vezeteknev + " " +adatbazis[0].utonev;
-    var ertek=adatbazis[0].ertek;
-    for(i=0; i<adatbazis.length; i++){
+    ertekesebb=""+ adatbazis[0].vezeteknev + " " +adatbazis[0].utonev;
+     ertek=adatbazis[0].ertek;
+    for(i=1; i<adatbazis.length; i++){
         if(ertek<adatbazis[i].ertek){
             ertekesebb=""+ adatbazis[i].vezeteknev + " " +adatbazis[i].utonev;
             ertek=adatbazis[i].ertek;
+            if(adatbazis.length<200){
+            ertekesebb="<p> A " + adatbazis[i].klub+ " legértékesebb játékosa:" + ertekesebb +". Értéke  "+ ertek +" millió HUF.</p>"
+            }
+            else{
+                ertekesebb="<p> Az NB1 legértékesebb játékosa: " + ertekesebb +". Értéke  "+ ertek +" millió HUF.</p>"  
+            }
+
         }
     }
-    console.log(adatbazis);
-    console.log(ertekesebb);
-    document.querySelector('#legertekesebb').innerHTML=ertekesebb;
+
+    if(kiiras=="<ul></ul>"){
+        document.querySelector('.legertekesebb').innerHTML=ertekesebb+"<ul></ul>";
+        document.querySelector('.legertekesebb ul').setAttribute('style', 'padding:0');
+
+
+    }
+    else{
+
+        document.querySelector('.legertekesebb').innerHTML=ertekesebb + "<ul>"+kiiras+"</ul>";
+   
+    }
     
 }
 
