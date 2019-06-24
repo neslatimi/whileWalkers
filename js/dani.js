@@ -15,9 +15,8 @@ function elsoCsapat() {
         els[i].removeAttribute("disabled");
     }
 
-    //Csapat tömb létrehizása
+    //Csapat kikeresése
     var elsoCsapatNev = document.querySelector('#elsoCsapat option:checked').innerText;
-    var elsoCsapat = csapatSzures(elsoCsapatNev);
 
     //megkeresi a node-ot, aminek a szovege megegyezik a keresettel
     var options = document.querySelectorAll('#masodikCsapat option');
@@ -41,7 +40,6 @@ function masodikCsapat() {
     }
 
     var masodikCsapatNev = document.querySelector('#masodikCsapat option:checked').innerText;
-    var masodikCsapat = csapatSzures(masodikCsapatNev);
 
     var options = document.querySelectorAll('#elsoCsapat option');
     var searchText = masodikCsapatNev;
@@ -138,28 +136,32 @@ function Nationalities(csapat) {
 function melyikSzures() {
     var node = document.querySelector('#szures');
     var szures = parseInt(node.value);
+    var elsoCsapatNev = document.querySelector('#elsoCsapat option:checked').innerText;
+    var egy = csapatSzures(elsoCsapatNev);
+    var masodikCsapatNev = document.querySelector('#masodikCsapat option:checked').innerText;
+    var ketto = csapatSzures(masodikCsapatNev);
     var uno = document.querySelector('#info1');
     var due = document.querySelector('#info2');
-    document.querySelector('#csapat1').innerHTML = elsoCsapat()[0].klub;
-    document.querySelector('#csapat2').innerHTML = masodikCsapat()[0].klub;;
+    document.querySelector('#csapat1').innerHTML = egy[0].klub;
+    document.querySelector('#csapat2').innerHTML = ketto[0].klub;;
     switch (szures) {
         case 1:
             uno.innerHTML = '';
             due.innerHTML = '';
-            uno.innerHTML += MaximumAge(elsoCsapat()).vezeteknev + ' ' + MaximumAge(elsoCsapat()).utonev + ', aki ' + CalculateAge(MaximumAge(elsoCsapat()).szulido) + ' éves';
-            due.innerHTML += MaximumAge(masodikCsapat()).vezeteknev + ' ' + MaximumAge(masodikCsapat()).utonev + ', aki ' + CalculateAge(MaximumAge(masodikCsapat()).szulido) + ' éves';
+            uno.innerHTML += MaximumAge(egy).vezeteknev + ' ' + MaximumAge(egy).utonev + ', aki ' + CalculateAge(MaximumAge(egy).szulido) + ' éves';
+            due.innerHTML += MaximumAge(ketto).vezeteknev + ' ' + MaximumAge(ketto).utonev + ', aki ' + CalculateAge(MaximumAge(ketto).szulido) + ' éves';
             break;
         case 2:
             uno.innerHTML = '';
             due.innerHTML = '';
-            uno.innerHTML += MinimumAge(elsoCsapat()).vezeteknev + ' ' + MinimumAge(elsoCsapat()).utonev + ', aki ' + CalculateAge(MinimumAge(elsoCsapat()).szulido) + ' éves';
-            due.innerHTML += MinimumAge(masodikCsapat()).vezeteknev + ' ' + MinimumAge(masodikCsapat()).utonev + ', aki ' + CalculateAge(MinimumAge(masodikCsapat()).szulido) + ' éves';
+            uno.innerHTML += MinimumAge(egy).vezeteknev + ' ' + MinimumAge(egy).utonev + ', aki ' + CalculateAge(MinimumAge(egy).szulido) + ' éves';
+            due.innerHTML += MinimumAge(ketto).vezeteknev + ' ' + MinimumAge(ketto).utonev + ', aki ' + CalculateAge(MinimumAge(ketto).szulido) + ' éves';
             break;
         case 3:
             uno.innerHTML = '';
             due.innerHTML = '';
-            uno.innerHTML += 'A csapat teljes értéke: ' + teamValue(elsoCsapat()) + ' milliárd euró';
-            due.innerHTML += 'A csapat teljes értéke: ' + teamValue(masodikCsapat()) + ' milliárd euró';
+            uno.innerHTML += 'A csapat teljes értéke: ' + teamValue(egy) + ' milliárd euró';
+            due.innerHTML += 'A csapat teljes értéke: ' + teamValue(ketto) + ' milliárd euró';
             break;
         case 4:
             var hanyatmutasson;
@@ -170,30 +172,30 @@ function melyikSzures() {
             uno.innerHTML = '<ol id="lista1"></ol>';
             due.innerHTML = '<ol id="lista2"></ol>';
 
-            for (var i = 0; i < ikszTopPlayers(elsoCsapat(), hanyatmutasson).length; i++) {
-                document.querySelector('#lista1').innerHTML += '<li>' + '<strong>' + ikszTopPlayers(elsoCsapat(), hanyatmutasson)[i].vezeteknev + ' ' + ikszTopPlayers(elsoCsapat(), hanyatmutasson)[i].utonev + '</strong>' +
-                    '<br>' + 'Értéke: ' + ikszTopPlayers(elsoCsapat(), hanyatmutasson)[i].ertek + ' milliárd euró' + '</br>'
+            for (var i = 0; i < ikszTopPlayers(egy, hanyatmutasson).length; i++) {
+                document.querySelector('#lista1').innerHTML += '<li>' + '<strong>' + ikszTopPlayers(egy, hanyatmutasson)[i].vezeteknev + ' ' + ikszTopPlayers(egy, hanyatmutasson)[i].utonev + '</strong>' +
+                    '<br>' + 'Értéke: ' + ikszTopPlayers(egy, hanyatmutasson)[i].ertek + ' milliárd euró' + '</br>'
             }
 
-            for (var i = 0; i < ikszTopPlayers(masodikCsapat(), hanyatmutasson).length; i++) {
-                document.querySelector('#lista2').innerHTML += '<li>' + '<strong>' + ikszTopPlayers(masodikCsapat(), hanyatmutasson)[i].vezeteknev + ' ' + ikszTopPlayers(masodikCsapat(), hanyatmutasson)[i].utonev + '</strong>' +
-                    '<br>' + 'Értéke: ' + ikszTopPlayers(masodikCsapat(), hanyatmutasson)[i].ertek + ' milliárd euró' + '</li>'
+            for (var i = 0; i < ikszTopPlayers(ketto, hanyatmutasson).length; i++) {
+                document.querySelector('#lista2').innerHTML += '<li>' + '<strong>' + ikszTopPlayers(ketto, hanyatmutasson)[i].vezeteknev + ' ' + ikszTopPlayers(ketto, hanyatmutasson)[i].utonev + '</strong>' +
+                    '<br>' + 'Értéke: ' + ikszTopPlayers(ketto, hanyatmutasson)[i].ertek + ' milliárd euró' + '</li>'
             }
             break;
         case 5:
             uno.innerHTML = '';
             due.innerHTML = '';
-            uno.innerHTML += 'Magyar: ' + Nationalities(elsoCsapat()).magyar + '<br>' + 'Külföldi: ' + Nationalities(elsoCsapat()).kulfoldi + '<br>' + 'Kettős állampolgár: ' + Nationalities(elsoCsapat()).kettos;
-            due.innerHTML += 'Magyar: ' + Nationalities(masodikCsapat()).magyar + '<br>' + 'Külföldi: ' + Nationalities(elsoCsapat()).kulfoldi + '<br>' + 'Kettős állampolgár: ' + Nationalities(masodikCsapat()).kettos
+            uno.innerHTML += 'Magyar: ' + Nationalities(egy).magyar + '<br>' + 'Külföldi: ' + Nationalities(egy).kulfoldi + '<br>' + 'Kettős állampolgár: ' + Nationalities(egy).kettos;
+            due.innerHTML += 'Magyar: ' + Nationalities(ketto).magyar + '<br>' + 'Külföldi: ' + Nationalities(egy).kulfoldi + '<br>' + 'Kettős állampolgár: ' + Nationalities(ketto).kettos
             break;
         case 6:
             uno.innerHTML = '<i>Kattints a játékosra több információért!</i><ul id="list1"></ul>';
             due.innerHTML = '<i>Kattints a játékosra több információért!</i><ul id="list2"></ul>';
-            for (var i = 0; i < elsoCsapat().length; i++) {
-                document.querySelector('#list1').innerHTML += '<li>' + '<a href="/lista.html#' + elsoCsapat()[i].vezeteknev + ' ' + elsoCsapat()[i].utonev + '" target="_blank">' + elsoCsapat()[i].vezeteknev + ' ' + elsoCsapat()[i].utonev + '</a>' + '</li>';
+            for (var i = 0; i < egy.length; i++) {
+                document.querySelector('#list1').innerHTML += '<li>' + '<a href="/lista.html#' + egy[i].vezeteknev + ' ' + egy[i].utonev + '" target="_blank">' + egy[i].vezeteknev + ' ' + egy[i].utonev + '</a>' + '</li>';
             }
-            for (var i = 0; i < masodikCsapat().length; i++) {
-                document.querySelector('#list2').innerHTML += '<li>' + '<a href="/lista.html#' + masodikCsapat()[i].vezeteknev + ' ' + masodikCsapat()[i].utonev + '" target="_blank">' + masodikCsapat()[i].vezeteknev + ' ' + masodikCsapat()[i].utonev + '</a>' + '</li>';
+            for (var i = 0; i < ketto.length; i++) {
+                document.querySelector('#list2').innerHTML += '<li>' + '<a href="/lista.html#' + ketto[i].vezeteknev + ' ' + ketto[i].utonev + '" target="_blank">' + ketto[i].vezeteknev + ' ' + ketto[i].utonev + '</a>' + '</li>';
             }
             break;
     }
